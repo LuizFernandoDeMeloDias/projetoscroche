@@ -1,10 +1,21 @@
+import { useState } from 'react';
 import './App.css'
+
 import { Card } from './components/card/card'
 import { useProjectData } from './hooks/useProjectData';
+import { CreateModal } from './components/create-modal/create-modal';
 
 function App() {
 
   const {data} = useProjectData();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () =>{
+
+    setIsModalOpen(prev => !prev)
+
+  }
 
   return (
     <>
@@ -16,12 +27,18 @@ function App() {
       <Card
         key={index}
         name={ProjectData.name}
-        image={ProjectData.image}
+        image={ProjectData.imagePath}
         priority={ProjectData.priority}
       />
-    ))}
-  </div>
-</div>
+    )
+    
+    
+  )}
+    </div>
+        {isModalOpen && <CreateModal/>}
+
+        <button onClick={handleOpenModal}>NOvo</button>
+    </div>
     </>
   )
 }

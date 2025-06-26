@@ -1,6 +1,6 @@
 export interface ProjectData {
-    id: number,
+    id?: number,
     name: string,
-    image: string,
+    imagePath: string,
     priority: number
 }

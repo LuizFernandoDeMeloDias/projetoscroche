@@ -8,8 +8,9 @@ interface CardProps {
 }
 
 export function Card( {priority, image, name} : CardProps){
-
+        console.log("Imagem:", image);
     return(
+        
         <>
         <div className="card">
             <img src={image} alt="" />
